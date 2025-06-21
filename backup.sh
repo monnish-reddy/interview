@@ -58,8 +58,15 @@ then
     echo -e "$R Destination Directory $DEST_DIR does not exist. Please check $N"
     exit 1
 fi
-
+dnf list installed zip
+if [ $? -eq 1 ]
+then 
+    dnf install zip -y
+    VALIDATE $? "installing zip"
+fi
 FILES=$(find $SOURCE_DIR -name "*.log" -mtime +$DAYS)
+
+
 
 if [ ! -z "$FILES" ]
 then
