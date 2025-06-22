@@ -22,7 +22,7 @@ echo "please enter the package to install"
 read package
 
 dnf list installed $package
-if [$? -ne 0 ]
+if [ $? -ne 0 ]
 then 
     echo "the $package is going to install"
     dnf install $package -y
