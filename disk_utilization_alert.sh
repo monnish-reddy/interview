@@ -16,7 +16,8 @@ do
     partition=$(echo $line|awk '{print $6}')
     if [ $usage -gt 10 ]
     then 
-        msg+="high sidk usage on partition $partition and the percent is $usage %"
+     msg+="High disk usage on partition $partition: $usage%"$'\n'
+
     fi
     
 done <<< $FILE
