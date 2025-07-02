@@ -14,7 +14,7 @@ while IFS= read -r line
 do
     usage=$(echo $line|awk '{print $5}'|cut -d '%' -f1)
     partition=$(echo $line|awk '{print $6}')
-    if [ $usage > 10 ]
+    if [ $usage - gt 10 ]
     then 
         msg+="high sidk usage on partition $partition and the percent is $usage %"
     fi
