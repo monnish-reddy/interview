@@ -23,6 +23,7 @@ VALIDATE(){
         echo -e  "  $2 is success..."
     else
         echo -e  " $2 is $R failure... $N "
+    fi
 }
 
 echo -p "please enter source dir to backup and delete" 
