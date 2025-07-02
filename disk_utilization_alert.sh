@@ -3,7 +3,20 @@ USERID=$(id -u)
 SCRIPT_NAME=$(echo $0|cut -d '.' -f1)
 LOGS_FOLDER="/var/log/monnishlogs"
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
+msg=" "
 
 mkdir -p $LOGS_FOLDER
 
 echo " $LOG_FILE"
+FILE=$(df -h | grep -v Filesystem)
+
+while IFS= read -r line
+do
+    usage=$(echo $line|awk '{print $5}'|cut -d '%' -f1)
+    partition=$(echo $line|awk '{print $6}')
+    if [ $usage > 0 ]
+    then 
+        msg+= "high sidk usage on partition $partition and the percent is $usage %"
+    fi
+    
+done <<< FILE
