@@ -7,7 +7,7 @@ msg=" "
 
 mkdir -p $LOGS_FOLDER
 
-echo " $LOG_FILE"
+
 FILE=$(df -h | grep -v Filesystem)
 
 while IFS= read -r line
