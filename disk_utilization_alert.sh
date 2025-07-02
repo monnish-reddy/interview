@@ -17,6 +17,7 @@ do
     if [ $usage > 0 ]
     then 
         msg+= "high sidk usage on partition $partition and the percent is $usage %"
+        echo " $msg"
     fi
     
 done <<< FILE
