@@ -20,4 +20,4 @@ do
         echo " $msg"
     fi
     
-done <<< FILE
+done <<< $FILE
