@@ -21,3 +21,4 @@ do
     fi
     
 done <<< $FILE
+   echo " $msg" | tee -a $LOG_FILE
